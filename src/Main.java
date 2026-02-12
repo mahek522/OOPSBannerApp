@@ -23,6 +23,19 @@
  *
  * @author Developer
  * @version 2
+ *
+ */
+/**
+ * OOPSBannerApp UC3 – OOPS Banner Application (Use Case 3)
+ *
+ * This class extends the functionality of Use Case 2 by improving the way the "OOPS" banner
+ * is constructed and displayed. It focuses on enhancing code readability and efficiency
+ * by utilizing the String.join() method to create each line of the banner. This approach
+ * overcomes the drawbacks of using the + operator for string concatenation, which can lead
+ * to code inefficiency due to the creation of multiple intermediate String objects in memory.
+ *
+ * @author Developer
+ * @version 3.0
  */
 
 public class Main
@@ -42,5 +55,16 @@ public class Main
         System.out.println("**     **" + " " + "**     **" + " " + "**" +       "     " + "      ** ");
         System.out.println("**     **" + " " + "**     **" + " " + "**" +       "     "+  "      **");
         System.out.println("   ***   " + " " + "   ***   " + " " + "**" +   "      " + "*****   ");
+
+        // Construct each line using String.join() method for better readability and efficiency.
+        // Each line corresponds to a row in the banner for the letters O, O, P, S.
+        System.out.println(String.join(" ", "   ***   ","   ***   ","******  ","   *****"));
+        System.out.println(String.join(" ","**     **","**     **","**    **"," **   "));
+        System.out.println(String.join(" ","**     **","**     **","**    **","**   "));
+        System.out.println(String.join(" ","**     **","**     **","******","    ***"));
+        System.out.println(String.join(" ","**     **","**     **","**","           ** "));
+        System.out.println(String.join(" ","**     **","**     **","**","             **"));
+        System.out.println(String.join(" ","   ***   ","   ***   ","**","       *****   "));
+
     }
 }
