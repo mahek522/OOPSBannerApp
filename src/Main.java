@@ -47,11 +47,23 @@
  * @author Developer
  * @version 4
  */
+/**
+ * OOPSBannerApp UC5 – Render OOPS as Banner using Inline Array Initialization
+ *
+ * This use case extends UC4 by defining and populating the String array in a more
+ * concise way at the time of declaration using String.join() method to create each
+ * line for the banner. This further enhances code readability and maintainability.
+ *
+ * @author Developer
+ * @version 5.0
+ */
 public class Main
 {
     public static void main(String[] args){
+        //UC1
         System.out.println("OOPS");
 
+        //UC2
         // Main method to run the banner display
         // Print each line of the OOPS banner to create the visual effect for the
         // message "OOPS". Construct each line using string concatenation.
@@ -65,6 +77,7 @@ public class Main
         System.out.println("**     **" + " " + "**     **" + " " + "**" +       "     "+  "      **");
         System.out.println("   ***   " + " " + "   ***   " + " " + "**" +   "      " + "*****   ");
 
+        //UC3
         // Construct each line using String.join() method for better readability and efficiency.
         // Each line corresponds to a row in the banner for the letters O, O, P, S.
         System.out.println(String.join(" ", "   ***   ","   ***   ","******  ","   *****"));
@@ -76,6 +89,7 @@ public class Main
         System.out.println(String.join(" ","   ***   ","   ***   ","**","       *****   "));
 
 
+        //UC4
         // Extend the user story 3 to further develop the OOPS Banner Application
         // by using String arrays to hold banner lines and printing them in a loop.
         // This use case improves upon UC3 by using a String array to store banner lines
@@ -94,6 +108,24 @@ public class Main
             System.out.println(line);
         }
 
+        //UC5
+        // Extend the user story 4 to further develop the OOPS Banner Application by
+        // only using String arrays to hold banner lines and printing them in a
+        // loop. But also by defining and populating the array in a more concise way
+        // at the time of declaration using String.join() method to create each line
+        // of the banner.
+        String[] lines1 = {
+                String.join(" ", "   ***   ","   ***   ","******  ","   *****"),
+                String.join(" ","**     **","**     **","**    **"," **   "),
+                String.join(" ","**     **","**     **","**    **","**   "),
+                String.join(" ","**     **","**     **","******","    ***"),
+                String.join(" ","**     **","**     **","**","           ** "),
+                String.join(" ","**     **","**     **","**","             **"),
+                String.join(" ","   ***   ","   ***   ","**","       *****   ")
+        };
+        for(String line : lines1){
+            System.out.println(line);
+        }
 
     }
 }
