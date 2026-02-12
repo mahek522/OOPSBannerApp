@@ -77,11 +77,21 @@
  * @author Developer
  * @version 7.0
  */
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * UC8 – Banner printing using HashMap and utility methods
+ * Prints the word "OOPS" using ASCII patterns.
+ */
+
 public class Main
 {
     public static void main(String[] args){
         //UC1
+        System.out.println("-----UC1-----");
         System.out.println("OOPS");
+        System.out.println("-----UC2-----");
 
         //UC2
         // Main method to run the banner display
@@ -96,6 +106,8 @@ public class Main
         System.out.println("**     **" + " " + "**     **" + " " + "**" +       "     " + "      ** ");
         System.out.println("**     **" + " " + "**     **" + " " + "**" +       "     "+  "      **");
         System.out.println("   ***   " + " " + "   ***   " + " " + "**" +   "      " + "*****   ");
+
+        System.out.println("-----UC3-----");
 
         //UC3
         // Construct each line using String.join() method for better readability and efficiency.
@@ -124,6 +136,8 @@ public class Main
         lines[5] = String.join(" ","**     **","**     **","**","             **");
         lines[6] = String.join(" ","   ***   ","   ***   ","**","       *****   ");
 
+        System.out.println("-----UC4-----");
+
         for(String line : lines){
             System.out.println(line);
         }
@@ -143,6 +157,7 @@ public class Main
                 String.join(" ","**     **","**     **","**","             **"),
                 String.join(" ","   ***   ","   ***   ","**","       *****   ")
         };
+        System.out.println("-----UC5-----");
         for(String line : lines1){
             System.out.println(line);
         }
@@ -155,6 +170,7 @@ public class Main
         String[] sPattern = getSPattern();
         //Use the loop to Assemble each line of the banner to create
         // the visual effect for the message 'OOPS'
+        System.out.println("-----UC6-----");
         for(int i=0; i<oPattern.length; i++){
             System.out.println(oPattern[i]+ " "+oPattern[i]+" "+ pPattern[i]+" "+sPattern[i]);
         }
@@ -202,7 +218,7 @@ public class Main
                 })
         };
         int rows = patterns[0].getCharacterPattern().length;
-
+        System.out.println("-----UC7-----");
         for (int i = 0; i < rows; i++) {
 
             StringBuilder line = new StringBuilder();
@@ -213,6 +229,9 @@ public class Main
 
             System.out.println(line.toString());
         }
+        //UC8
+        System.out.println("-----UC8-----");
+        displayBanner("OOPS");
     }
 
     // Method to generate the pattern for the letter 'O'
@@ -284,4 +303,67 @@ public class Main
                 return pattern;
             }
         }
+    //UC8
+    public static Map<Character, String[]> buildCharacterPatternMap() {
+
+        Map<Character, String[]> patternMap = new HashMap<>();
+
+        patternMap.put('O', new String[]{
+                "   ***   ",
+                "**     **",
+                "**     **",
+                "**     **",
+                "**     **",
+                "**     **",
+                "   ***   "
+        });
+
+        patternMap.put('P', new String[]{
+                "******  ",
+                "**    **",
+                "**    **",
+                "******",
+                "**",
+                "**",
+                "**",
+        });
+
+        patternMap.put('S', new String[]{
+                "   *****",
+                " **   ",
+                "**   ",
+                "    ***",
+                "           ** ",
+                "             **",
+                "       *****   "
+        });
+
+        return patternMap;
+    }
+    public static void displayBanner(String message) {
+
+        Map<Character, String[]> patternMap = buildCharacterPatternMap();
+
+        int totalRows = 7;
+
+        for (int row = 0; row < totalRows; row++) {
+
+            StringBuilder lineBuilder = new StringBuilder();
+
+            for (int i = 0; i < message.length(); i++) {
+
+                char ch = message.charAt(i);
+                String[] pattern = patternMap.get(ch);
+
+                if (pattern != null) {
+                    lineBuilder.append(pattern[row]);
+                    lineBuilder.append("   ");
+                }
+            }
+
+            System.out.println(lineBuilder.toString());
+        }
+    }
+
+
 }
