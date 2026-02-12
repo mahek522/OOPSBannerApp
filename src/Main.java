@@ -67,6 +67,16 @@
  * @author Developer
  * @version 6.0
  */
+/**
+ * OOPSBannerApp UC7 - Store Character Pattern using Inner Static Class
+ *
+ * This application prints the banner for the word "OOPS" by storing
+ * character patterns using an inner static class and displaying them
+ * using StringBuilder for efficient concatenation.
+ *
+ * @author Developer
+ * @version 7.0
+ */
 public class Main
 {
     public static void main(String[] args){
@@ -148,6 +158,61 @@ public class Main
         for(int i=0; i<oPattern.length; i++){
             System.out.println(oPattern[i]+ " "+oPattern[i]+" "+ pPattern[i]+" "+sPattern[i]);
         }
+        //UC7
+        CharacterPatternMap[] patterns = new CharacterPatternMap[] {
+
+                new CharacterPatternMap('O', new String[] {
+                        "   ***   ",
+                        "**     **",
+                        "**     **",
+                        "**     **",
+                        "**     **",
+                        "**     **",
+                        "   ***   "
+                }),
+
+                new CharacterPatternMap('O', new String[] {
+                        "   ***   ",
+                        "**     **",
+                        "**     **",
+                        "**     **",
+                        "**     **",
+                        "**     **",
+                        "   ***   "
+                }),
+
+                new CharacterPatternMap('P', new String[] {
+                        "******  ",
+                        "**    **",
+                        "**    **",
+                        "******",
+                        "**",
+                        "**",
+                        "**",
+                }),
+
+                new CharacterPatternMap('S', new String[] {
+                        "   *****",
+                        " **   ",
+                        "**   ",
+                        "    ***",
+                        "           ** ",
+                        "             **",
+                        "       *****   "
+                })
+        };
+        int rows = patterns[0].getCharacterPattern().length;
+
+        for (int i = 0; i < rows; i++) {
+
+            StringBuilder line = new StringBuilder();
+
+            for (CharacterPatternMap map : patterns) {
+                line.append(map.getCharacterPattern()[i]).append(" ");
+            }
+
+            System.out.println(line.toString());
+        }
     }
 
     // Method to generate the pattern for the letter 'O'
@@ -175,8 +240,8 @@ public class Main
         };
     }
     // Method to generate the pattern for the letter 'S'
-    public static String[] getSPattern(){
-        return new String[] {
+    public static String[] getSPattern() {
+        return new String[]{
                 "   *****",
                 " **   ",
                 "**   ",
@@ -186,4 +251,37 @@ public class Main
                 "       *****   "
         };
     }
+        //UC7
+        /**
+         * Inner static class used to store a character and its banner pattern.
+         * This class encapsulates the character and its corresponding pattern.
+         */
+        public static class CharacterPatternMap {
+
+            private final char character;
+            private final String[] pattern;
+            /**
+             * Constructor to initialize character and its pattern.
+             * @param character the character to be displayed
+             * @param pattern   the banner pattern of the character
+             */
+            public CharacterPatternMap(char character, String[] pattern) {
+                this.character = character;
+                this.pattern = pattern;
+            }
+            /**
+             * Returns the character.
+             * @return the character
+             */
+            public char getCharacter() {
+                return character;
+            }
+            /**
+             * Returns the banner pattern for the character.
+             * @return the pattern of the character
+             */
+            public String[] getCharacterPattern() {
+                return pattern;
+            }
+        }
 }
